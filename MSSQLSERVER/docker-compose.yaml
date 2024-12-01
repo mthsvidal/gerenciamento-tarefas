@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver_container
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Abc123!x"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    restart: unless-stopped
+    networks:
+      - sqlnetwork
+
+networks:
+  sqlnetwork:
+    driver: bridge

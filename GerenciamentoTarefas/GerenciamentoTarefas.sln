@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciamentoTarefas.API", "GerenciamentoTarefas.API\GerenciamentoTarefas.API.csproj", "{E10F81E8-30F4-45AA-9E6A-95D6479E7593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Tests", "0 - Tests", "{FDF3E26C-B603-4A3D-A55C-817AF57AA2BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{9C79F4AF-463D-4C34-B9F7-092F4EE9FA23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{AD05FE84-9507-4C8D-B2E2-EEACBE8FB340}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{2E5E9CEB-D6CB-40F6-9AFF-E36469DAC5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciamentoTarefas.Domain", "GerenciamentoTarefas.Domain\GerenciamentoTarefas.Domain.csproj", "{5C204166-8B76-4A99-B71B-3FA4EA60C688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciamentoTarefas.Infra.Database", "GerenciamentoTarefas.Infra.Database\GerenciamentoTarefas.Infra.Database.csproj", "{904F625A-7ACB-4F98-9590-E86E1F3C066D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E10F81E8-30F4-45AA-9E6A-95D6479E7593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10F81E8-30F4-45AA-9E6A-95D6479E7593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10F81E8-30F4-45AA-9E6A-95D6479E7593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10F81E8-30F4-45AA-9E6A-95D6479E7593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C204166-8B76-4A99-B71B-3FA4EA60C688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C204166-8B76-4A99-B71B-3FA4EA60C688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C204166-8B76-4A99-B71B-3FA4EA60C688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C204166-8B76-4A99-B71B-3FA4EA60C688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904F625A-7ACB-4F98-9590-E86E1F3C066D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904F625A-7ACB-4F98-9590-E86E1F3C066D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904F625A-7ACB-4F98-9590-E86E1F3C066D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904F625A-7ACB-4F98-9590-E86E1F3C066D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E10F81E8-30F4-45AA-9E6A-95D6479E7593} = {9C79F4AF-463D-4C34-B9F7-092F4EE9FA23}
+		{5C204166-8B76-4A99-B71B-3FA4EA60C688} = {AD05FE84-9507-4C8D-B2E2-EEACBE8FB340}
+		{904F625A-7ACB-4F98-9590-E86E1F3C066D} = {2E5E9CEB-D6CB-40F6-9AFF-E36469DAC5C4}
+	EndGlobalSection
+EndGlobal
