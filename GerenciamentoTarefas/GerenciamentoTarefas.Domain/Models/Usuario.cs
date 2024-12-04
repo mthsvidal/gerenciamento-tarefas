@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciamentoTarefas.Domain.Enumerables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoTarefas.Domain.Models
 {
-    public class Projeto
+    public class Usuario
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
@@ -15,14 +16,16 @@ namespace GerenciamentoTarefas.Domain.Models
         [MaxLength(150)]
         public string Nome { get; set; }
 
-        [MaxLength(500)]
-        public string Descricao { get; set; }
+        [Required]
+        [EmailAddress]
+        [MaxLength(150)]
+        public string Email { get; set; }
 
         [Required]
-        public Guid UsuarioId { get; set; }
+        [MaxLength(60)]
+        public string Username { get; set; }
 
-        public required Usuario Usuario { get; set; }
-
-        public ICollection<Tarefa> Tarefas { get; set; } = new List<Tarefa>();
+        [Required]
+        public Cargos Cargo { get; set; } = Cargos.Analista;
     }
 }

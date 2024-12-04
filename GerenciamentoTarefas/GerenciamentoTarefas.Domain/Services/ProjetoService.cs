@@ -1,4 +1,5 @@
 ﻿using GerenciamentoTarefas.Domain.Core.Interfaces.Repositories;
+using GerenciamentoTarefas.Domain.Enumerables;
 using GerenciamentoTarefas.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -17,22 +18,34 @@ namespace GerenciamentoTarefas.Domain.Services
             _projetoRepository = projetoRepository;
         }
 
-        public IEnumerable<Projeto> ObterPorUsuarioId(string usuarioId)
+        public IEnumerable<Projeto> ObterPorUsuarioId(Guid usuarioId)
         {
-            return _projetoRepository.ObterTodos()
-                                     .Where(p => p.UsuarioId == usuarioId);
+            try
+            {
+                return _projetoRepository.ObterComFiltro(p => p.UsuarioId == usuarioId);                                         
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Erro ao obter projetos para o usuário com ID {usuarioId}.", ex);
+            }
         }
 
-        public IEnumerable<Projeto> ObterPorNome(string nome)
+        public override void Remover(Projeto objeto)
         {
-            return _projetoRepository.ObterTodos()
-                                     .Where(p => p.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase));
-        }
+            try
+            {
+                var projeto = _projetoRepository.ObterPorId(objeto.Id);
 
-        public bool TemTarefasAssociadas(Guid projetoId)
-        {
-            var projeto = _projetoRepository.ObterPorId(projetoId);
-            return projeto?.Tarefas.Any() ?? false;
+                if (projeto.Tarefas.Where(x => x.Status == StatusTarefa.Pendente).Count() > 0)
+                    throw new Exception("Não foi possível remover o projeto. Para continuar, por favor, finalize ou remova as tarefas pendentes associadas.");
+
+                _projetoRepository.Remover(objeto);
+            }
+            catch (Exception ex)
+            {
+                // Loga o erro ou lança uma exceção personalizada
+                throw new InvalidOperationException($"Erro ao remover o projeto com ID {objeto.Id}. Motivo: {ex.Message}", ex);
+            }
         }
     }
 }

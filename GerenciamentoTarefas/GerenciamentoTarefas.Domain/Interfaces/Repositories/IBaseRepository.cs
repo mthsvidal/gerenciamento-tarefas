@@ -12,7 +12,11 @@ namespace GerenciamentoTarefas.Domain.Core.Interfaces.Repositories
 
         TEntity ObterPorId(Guid id);
 
+        TEntity ObterEntidadePorId(Guid id);
+
         IEnumerable<TEntity> ObterTodos();
+
+        IEnumerable<TEntity> ObterComFiltro(Func<TEntity, bool> predicado);
 
         void Atualizar(TEntity obj);
 

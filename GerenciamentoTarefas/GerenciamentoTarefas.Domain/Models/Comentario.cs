@@ -12,7 +12,7 @@ namespace GerenciamentoTarefas.Domain.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         public string Texto { get; set; }
 
         [Required]
@@ -20,6 +20,11 @@ namespace GerenciamentoTarefas.Domain.Models
 
         [Required]
         public Guid TarefaId { get; set; }
+
+        [Required]
+        public Guid UsuarioId { get; set; }
+
         public Tarefa Tarefa { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }

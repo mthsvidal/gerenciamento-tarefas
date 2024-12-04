@@ -22,7 +22,9 @@ namespace GerenciamentoTarefas.Domain.Models
         public Tarefa Tarefa { get; set; }
 
         [Required]
-        public string UsuarioId { get; set; }
+        public Guid UsuarioId { get; set; }
+
+        public required Usuario Usuario { get; set; }
     }
 
 }

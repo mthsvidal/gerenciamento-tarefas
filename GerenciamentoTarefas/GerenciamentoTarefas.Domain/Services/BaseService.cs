@@ -12,29 +12,69 @@ namespace GerenciamentoTarefas.Domain.Services
     {
         private readonly IBaseRepository<TEntity> _repository;
 
-        public BaseService(IBaseRepository<TEntity> Repository)
+        public BaseService(IBaseRepository<TEntity> repository)
         {
-            _repository = Repository;
+            _repository = repository;
         }
+
         public virtual void Adicionar(TEntity obj)
         {
-            _repository.Adicionar(obj);
+            try
+            {
+                _repository.Adicionar(obj);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao adicionar o item.", ex);
+            }
         }
+
         public virtual TEntity ObterPorId(Guid id)
         {
-            return _repository.ObterPorId(id);
+            try
+            {
+                return _repository.ObterPorId(id);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Erro ao obter o item com ID {id}.", ex);
+            }
         }
+
         public virtual IEnumerable<TEntity> ObterTodos()
         {
-            return _repository.ObterTodos();
+            try
+            {
+                return _repository.ObterTodos();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao obter os itens.", ex);
+            }
         }
+
         public virtual void Atualizar(TEntity obj)
         {
-            _repository.Atualizar(obj);
+            try
+            {
+                _repository.Atualizar(obj);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao atualizar o item.", ex);
+            }
         }
+
         public virtual void Remover(TEntity obj)
         {
-            _repository.Remover(obj);
+            try
+            {
+                _repository.Remover(obj);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Erro ao remover o item.", ex);
+            }
         }
 
         public virtual void Dispose()
@@ -42,4 +82,5 @@ namespace GerenciamentoTarefas.Domain.Services
             _repository.Dispose();
         }
     }
+
 }

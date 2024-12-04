@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoTarefas.Domain.DTOs
 {
-    public class ProjetoInputDto
+    public class ComentarioInputDto
     {
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public string Texto { get; set; }
+
+        public Guid TarefaId { get; set; }
         public Guid UsuarioId { get; set; }
     }
 }

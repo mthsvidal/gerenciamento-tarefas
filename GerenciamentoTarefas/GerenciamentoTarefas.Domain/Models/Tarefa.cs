@@ -19,6 +19,9 @@ namespace GerenciamentoTarefas.Domain.Models
         [MaxLength(500)]
         public string Descricao { get; set; }
 
+        [MaxLength(2000)]
+        public string Detalhes { get; set; }
+
         [Required]
         public DateTime DataVencimento { get; set; }
 
@@ -26,13 +29,12 @@ namespace GerenciamentoTarefas.Domain.Models
         public StatusTarefa Status { get; set; } = StatusTarefa.Pendente;
 
         [Required]
-        public PrioridadeTarefa Prioridade { get; set; }
+        public PrioridadeTarefa Prioridade { get; set; }        
 
         [Required]
-        public Guid ProjetoId { get; set; } // Relacionamento com o projeto
-        public Projeto Projeto { get; set; }
+        public Guid ProjetoId { get; set; }
 
-        // Relacionamento
+        public Projeto Projeto { get; set; }
         public ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
         public ICollection<HistoricoAtualizacao> Historicos { get; set; } = new List<HistoricoAtualizacao>();
     }

@@ -10,5 +10,6 @@ namespace GerenciamentoTarefas.Domain.Interfaces.Repositories
 {
     public interface ITarefaRepository : IBaseRepository<Tarefa>
     {
+        void Atualizar(Tarefa objeto, Guid usuarioId);
     }
 }
